@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+    ul {
+        list-style: none;
+        display: flex
+    }
+
+    .social-icon {
+        height: 70px;
+        width: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 27px;
+        margin-right: 11px;
+        cursor: pointer
+    }
+
+    .social-twitter {
+        background-color: #55acee
+    }
+
+    .social-facebook {
+        background-color: #3b5999
+    }
+
+    .social-linkedin {
+        background-color: #0077B5
+    }
+
+    .social-google {
+        background-color: #dd4b39
+    }
+
+    .social-instagram {
+        background-color: #dd4b39
+    }
+
+    .social-icon i {
+        transition: 0.4s all
+    }
+
+    .social-icon:hover i {
+        transform: scale(1.4)
+    }
+
+    #bgcolor1 {
+        background: lavender;
+    }
+
+</style>
+<head>
+    <meta charset="utf-8"/>
+    <title>Create New Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"
+            integrity="sha512-GDey37RZAxFkpFeJorEUwNoIbkTwsyC736KNSYucu1WJWFK9qTdzYub8ATxktr6Dwke7nbFaioypzbDOQykoRg=="
+            crossorigin="anonymous"></script>
+    <link href="main.css" rel="stylesheet"/>
+</head>
+<body>
+<div align="center">
+
+    <!--        <div class="col-sm-4">-->
+    <!--        <form action="#" th:action="@{/save}" th:object="${employee}" method="post">-->
+
+
+    <!--            <div alight="left">-->
+    <!--                <tr>-->
+    <!--                    <label class="form-label">Employee Name</label>-->
+    <!--                    <td>-->
+    <!--                        <input type="hidden" th:field="*{id}"/>-->
+    <!--                        <input type="text" th:field="*{ename}" class="form-control" placeholder="Emp Name"/>-->
+    <!--                    </td>-->
+    <!--                </tr>-->
+    <!--            </div>-->
+
+
+    <!--            <div alight="left">-->
+    <!--                <tr>-->
+    <!--                    <label class="form-label">mobile</label>-->
+
+    <!--                    <td>-->
+    <!--                        <input type="text" th:field="*{mobile}" class="form-control" placeholder="mobile"/>-->
+    <!--                    </td>-->
+    <!--                </tr>-->
+    <!--            </div>-->
+    <!--            <div alight="left">-->
+    <!--                <tr>-->
+    <!--                    <label class="form-label">salary</label>-->
+    <!--                    <td><input type="text" th:field="*{salary}" class="form-control" placeholder="salary"/></td>-->
+    <!--                </tr>-->
+    <!--            </div>-->
+
+    <!--            <br>-->
+    <!--            <tr>-->
+    <!--                <td colspan="2">-->
+    <!--                    <button type="submit" class="btn btn-info">Save</button>-->
+    <!--                </td>-->
+    <!--            </tr>-->
+
+    <!--        </form>-->
+    <!--    </div>-->
+
+
+    <body bgcolor="#deb887" id="bgcolor1">
+
+    <nav aria-label="breadcrumb" style="background: lavender" >
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Staysafe</a></li>
+            <li class="breadcrumb-item"><a href="#">Hotels</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Antalya Hotels</li>
+        </ol>
+    </nav>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{'/reservation'}">Bodrum Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/reservation'}">Akdeniz Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/reservation'}">Kibris Hotels</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " th:href="@{'/reservation'}">Honeymoon Hotels</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3"style="height: 300px;"></div>
+        <div class="col-sm-6 text-center">
+            <img src="../static/stay-safe.png" style="width:300px">
+            <h1>Stay Safe</h1>
+        </div>
+        <div class="col-sm-2"style="height: 300px;">
+            <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+                <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                        style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-sm-1" style="height: 300px;"></div>
+
+<!--        <div class="dropdown show" style="border-top-width: 1px;margin-bottom: 50px;">-->
+<!--            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"-->
+<!--               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                Number of Adults-->
+<!--            </a>-->
+
+<!--            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
+<!--                <a class="dropdown-item" href="#">1</a>-->
+<!--                <a class="dropdown-item" href="#">2</a>-->
+<!--                <a class="dropdown-item" href="#">Something else here</a>-->
+<!--            </div>-->
+<!--            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2"-->
+<!--               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                Number of Chilrens-->
+<!--            </a>-->
+
+<!--            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">-->
+<!--                <a class="dropdown-item" href="#">1</a>-->
+<!--                <a class="dropdown-item" href="#">2</a>-->
+<!--                <a class="dropdown-item" href="#">Something else here</a>-->
+<!--            </div>-->
+<!--            <a class="btn btn-primary" href="newEmp" role="button">select a Room</a>-->
+<!--        </div>-->
+
+
+<!--        <div class="form-group row">-->
+<!--            <label class="col-form-label text-right col-lg-3 col-sm-12">Location</label>-->
+<!--            <div class="col-lg-4 col-md-9 col-sm-12">-->
+<!--                <div class="input-group date" id="kt_datetimepicker_1" data-target-input="nearest">-->
+<!--                    <input type="text" class="form-control datetimepicker-input" placeholder="Location"-->
+<!--                           data-target="#kt_datetimepicker_1"/>-->
+<!--                    <div class="input-group-append" data-target="#kt_datetimepicker_1" data-toggle="datetimepicker">-->
+<!--                    <span class="input-group-text">-->
+<!--                     <i class="ki ki-calendar"></i>-->
+<!--                    </span>-->
+<!--                    </div>-->
+<!--                    <script type="text/javascript">-->
+<!--                        $('#kt_datetimepicker_1').datetimepicker();-->
+
+<!--                    </script>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <script type="text/javascript">-->
+<!--                $('#kt_datetimepicker_1').datetimepicker();-->
+
+<!--            </script>-->
+<!--        </div>-->
+
+
+<!--        <div class="form-group row">-->
+<!--            <label class="col-form-label text-right col-lg-3 col-sm-12">Date Only</label>-->
+<!--            <div class="col-lg-4 col-md-9 col-sm-12">-->
+<!--                <div class="input-group input-group-solid date" id="kt_datetimepicker_3" data-target-input="nearest">-->
+<!--                    <input type="text" class="form-control form-control-solid datetimepicker-input"-->
+<!--                           placeholder="Select date & time" data-target="#kt_datetimepicker_3"/>-->
+<!--                    <div class="input-group-append" data-target="#kt_datetimepicker_3" data-toggle="datetimepicker">-->
+<!--                    <span class="input-group-text">-->
+<!--                     <i class="ki ki-calendar"></i>-->
+<!--                    </span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash;                <a class="btn btn-primary" href="newEmp" role="button">Search</a>&ndash;&gt;-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../static/1.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Antalya Resort Hotel</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="reservation" class="btn btn-primary">Create Booking</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../static/2.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Antalya Belek Otel</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="reservation" class="btn btn-primary">Create Booking</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../static/3.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Antalya Fix Otel</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="reservation" class="btn btn-primary">Create Booking</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 17rem;">
+            <img class="card-img-top" src="../static/4.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Antalya Gold Otel</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="reservation" class="btn btn-primary">Create Booking</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 17rem;">
+            <img class="card-img-top" src="../static/5.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Antalya Beach Hotel</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="reservation" class="btn btn-primary">Create Booking</a>
+            </div>
+        </div>
+        <div class="card" style="width: 17rem;">
+            <img class="card-img-top" src="../static/1.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Antalya Spa Otel</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="reservation" class="btn btn-primary">GCreate Booking</a>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="panel panel-default"  style="margin-right: 700px;margin-top: 50px;">
+                <h2>Free Facilities</h2>
+                <div class="panel-body">Stream Room</div>
+                <div class="panel-body">Currency Exchange</div>
+                <div class="panel-body">Fitness Center </div>
+                <div class="panel-body">Pilates</div>
+                <div class="panel-body">Aerobic</div>
+            </div>
+
+        </div>
+
+    </div>
+    </body>
+</div>
+
+</body>
+</html>
